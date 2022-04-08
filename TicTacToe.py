@@ -127,6 +127,7 @@ while True:
 
     finish = int(input("Game finished, choose 1 to play another game, or 2 to exit: "))
     if finish == 1:
-        continue
+        state = [ 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+        print("Starting new game...")
     elif finish == 2:
         sys.exit("Leaving the game...")
