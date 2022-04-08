@@ -69,32 +69,14 @@ def turn_p2():
 
 def check_win():
     # You only need to check the cross
-    for n in state:
-        if (n in [1,4,7]) and (state[n-1] == state[n] == state[n+1]):       # Horizontal
+    for n in range(9):
+        if (n in [1,4,7]) and (state[n] != 0) and (state[n-1] == state[n] == state[n+1]):                                   # Horizontal
             return True
-        elif (n in [3,4,5]) and (state[n-3] == state[n] == state[n+3]):     # Vertical
+        elif (n in [3,4,5]) and (state[n] != 0) and (state[n-3] == state[n] == state[n+3]):                                 # Vertical
             return True
-        elif (n == 4) and (state[0] == state[n] == state[8] or state[2] == state[n] == state[6]):                               # Diagonal
+        elif (n == 4) and (state[n] != 0) and (state[0] == state[n] == state[8] or state[2] == state[n] == state[6]):       # Diagonal
             return True
-        else:
-            return False
-
-    """
-    if ((state[0]==state[1]==state[2]) and state[0]== 1) or (state[3]==state[4]==state[5] and state[3]== 1) or ((state[6]==state[7]==state[8]) and state[6]== 1):
-        return 1
-    elif ((state[0]==state[1]==state[2]) and state[0]== 2 ) or ((state[3]==state[4]==state[5]) and state[3]== 2) or ((state[6]==state[7]==state[8]) and state[6]== 2):
-        return 2
-    elif ((state[0]==state[3]==state[6]) and state[0]== 1) or ((state[1]==state[4]==state[7]) and state[1]== 1) or ((state[2]==state[5]==state[8]) and state[2]== 1):
-        return 1
-    elif((state[0]==state[3]==state[6]) and state[0]== 2) or ((state[1]==state[4]==state[7]) and state[1]== 2) or ((state[2]==state[5]==state[8]) and state[2]== 2):
-        return 2
-    elif (state[0]==state[4]==state[8] or state[2]==state[4]==state[6] ) and  state[4]== 1:
-        return 1
-    elif (state[0]==state[4]==state[8] or state[2]==state[4]==state[6] ) and  state[4]== 2:
-        return 2
-    else:
-        return 0
-    """
+    return False
 
 #------------------------------------GAME------------------------------------------
 
@@ -114,7 +96,7 @@ while True:
 
     finish = int(input("Game finished, choose 1 to play another game, or 2 to exit: "))
     if finish == 1:
-        state = [ 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+        state = [0, 0, 0, 0, 0, 0, 0, 0, 0] 
         print("Starting new game...")
     else:
         exit("Leaving the game...")
